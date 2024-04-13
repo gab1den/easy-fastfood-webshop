@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="article-card">
+    <div class="article-card-inner">
+        {% for busket in basket %}
+            <div class="card">
+                <div class="card-inner">
+                    <div class="img"></div>
+                    <h5>{{ busket.product }}</h5>
+                    <p>{{ busket.quantity }} шт.</p>
+                    <p>Цена: {{ busket.product.price }}$</p>
+                </div>
+            </div>             
+        {% endfor %}
+    </div>
+</article>
+{% endblock %}

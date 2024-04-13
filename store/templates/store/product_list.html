@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="article-card">
+    <div class="article-card-inner">
+        {% for product in products %}
+            <div class="card">
+                <div class="card-inner">
+                    <div class="img"></div>
+                    <h5>{{ b.name }}</h5>
+                    <p>{{ product.price }}$</p>
+                    <form method="post" action="{% url 'add_to_basket' product.id %}">
+                        {% csrf_token %}
+                        <button class="btn" type="submit">Add to Basket</button>
+                    </form>
+                </div>
+            </div>             
+        {% endfor %}                    
+    </div>
+</article>
+{% endblock %}
