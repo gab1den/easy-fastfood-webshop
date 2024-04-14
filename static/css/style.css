@@ -122,10 +122,9 @@ html, body {
     flex-direction: column;
 }
 
-.img {
+.card-inner img {
     width: 96%;
     height: 150px;
-    background-color: #777777;
     border-radius: 15px;
     margin: 0 auto;
 }

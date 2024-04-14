@@ -6,7 +6,7 @@
         {% for product in products %}
             <div class="card">
                 <div class="card-inner">
-                    <div class="img"></div>
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" >
                     <h5>{{ product.name }}</h5>
                     <p>{{ product.price }}$</p>
                     <form method="post" action="{% url 'add_to_basket' product.id %}">
