@@ -1,19 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-<article class="article-card">
-    <div id="basket-cards">
-        {% for basket in basket_items %}
-        <div class="card">
-            <div class="card-inner">
-                <img src="{{ basket.product.image.url }}" alt="{{ basket.product.name }}">
-                <p class="product-name">{{ basket.product.name }}</p>
-                <p class="product-quantity">{{ basket.quantity }} шт.</p>
-                <p class="product-price-one">{{ basket.product.price }} тг. за штуку</p>
-                <p class="product-total">Цена: <span class="price-placeholder"></span> тг.</p>
-            </div>
+<main class="main">
+    <article class="article-card">
+        <div class="article-card-inner">
+            {% for product in products %}
+                <div class="card">
+                    <div class="card-inner">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" >
+                        <h5>{{ product.name }}</h5>
+                        <p>{{ product.price }}$</p>
+                        <form method="post" action="{% url 'add_to_basket' product.id %}">
+                            {% csrf_token %}
+                            <button class="btn" type="submit">Add to Basket</button>
+                        </form>
+                    </div>
+                </div>             
+            {% endfor %}                    
         </div>
-        {% endfor %}
-    </div>
-</article>
+    </article>
+</main>
 {% endblock %}

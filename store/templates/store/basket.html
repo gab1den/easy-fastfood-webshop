@@ -5,36 +5,55 @@
 {% endblock %}
 
 {% block content %}
-<article class="article-card">
-    <div class="article-card-inner">
-        <div id="basket-cards">
-            {% for basket in basket_items %}
-            <div class="card">
-                <div class="card-inner">
-                    <img src="{{ basket.product.image.url }}" alt="{{ basket.product.name }}">
-                    <p class="product-name">{{ basket.product.name }}</p>
-                    <p class="product-quantity">{{ basket.quantity }} шт.</p>
-                    <p class="product-price-one">Цена: {{ basket.product.price }} тг. за штуку</p>
-                    <p class="product-total">Цена: <span class="price-placeholder"></span> тг.</p>
+<main class="main">
+    <article class="article-card">
+        <div class="article-card-inner">
+            <div id="basket-cards">
+                {% for basket in basket_items %}
+                <div class="row">
+                    <div class="row-inner">
+                        <p class="product-name">{{ basket.product.name }}</p>
+                        <p class="product-quantity">{{ basket.quantity }} шт.</p>
+                        <p class="product-price">Цена за штуку: {{ basket.product.price }} тг.</p>
+                        <p class="product-total">Цена за все {{ basket.product.name }}: {{ basket.quantity }} Х {{ basket.product.price }} = <span class="price-placeholder"></span> тг.</p>
+                    </div>
+                    <button class="btn" onclick="alert('Заказ оформлен успешно');" style="background-color: #ff450c;">Заказать</button>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
-    </div>
-</article>
+    </article>
+</main>
+<div id="total">
+    <p>Общая стоимость всех позиций: <span id="total-placeholder"></span> тг.</p>
+    <button class="btn" onclick="alert('Заказ оформлен успешно');" style="background-color: #ff450c;">Заказать всё</button>
+</div>
 <script>
-    const cards = document.querySelectorAll('#basket-cards .card');
+    // Получаем все карточки продуктов
+    const cards = document.querySelectorAll('#basket-cards .row');
+
+    // Переменная для хранения общей стоимости всех позиций
+    let totalSum = 0;
 
     // Для каждой карточки продукта
     cards.forEach(card => {
         // Получаем количество и стоимость за штуку
         const quantity = parseInt(card.querySelector('.product-quantity').textContent);
-        const priceOne = parseInt(card.querySelector('.product-price-one').textContent);
+        const priceOne = parseInt(card.querySelector('.product-price').textContent.match(/\d+/));
 
         // Вычисляем общую стоимость
         const total = quantity * priceOne;
 
         // Вставляем общую стоимость в соответствующий элемент
-        card.querySelector('.price-placeholder').textContent = total;})
-    </script>
+        const pricePlaceholder = card.querySelector('.price-placeholder');
+        pricePlaceholder.textContent = total;
+
+        // Добавляем стоимость к общей сумме
+        totalSum += total;
+    });
+
+    // Вставляем общую стоимость всех позиций в корзине
+    const totalPlaceholder = document.getElementById('total-placeholder');
+    totalPlaceholder.textContent = totalSum;
+</script>
 {% endblock %}
