@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-inner">
                     <div class="img"></div>
-                    <h5>{{ b.name }}</h5>
+                    <h5>{{ product.name }}</h5>
                     <p>{{ product.price }}$</p>
                     <form method="post" action="{% url 'add_to_basket' product.id %}">
                         {% csrf_token %}
