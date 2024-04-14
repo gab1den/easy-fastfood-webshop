@@ -1,18 +1,40 @@
 {% extends "base.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style-basket.css'%}">
+{% endblock %}
 
 {% block content %}
 <article class="article-card">
     <div class="article-card-inner">
-        {% for busket in basket %}
+        <div id="basket-cards">
+            {% for basket in basket_items %}
             <div class="card">
                 <div class="card-inner">
-                    <img src="{{ busket.product.image.url }}" alt="{{ busket.product.name }}" >
-                    <h5>{{ busket.product }}</h5>
-                    <p>{{ busket.quantity }} шт.</p>
-                    <p>Цена: {{ busket.product.price }}$ за шт.</p>
+                    <img src="{{ basket.product.image.url }}" alt="{{ basket.product.name }}">
+                    <p class="product-name">{{ basket.product.name }}</p>
+                    <p class="product-quantity">{{ basket.quantity }} шт.</p>
+                    <p class="product-price-one">Цена: {{ basket.product.price }} тг. за штуку</p>
+                    <p class="product-total">Цена: <span class="price-placeholder"></span> тг.</p>
                 </div>
-            </div>             
-        {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </article>
+<script>
+    const cards = document.querySelectorAll('#basket-cards .card');
+
+    // Для каждой карточки продукта
+    cards.forEach(card => {
+        // Получаем количество и стоимость за штуку
+        const quantity = parseInt(card.querySelector('.product-quantity').textContent);
+        const priceOne = parseInt(card.querySelector('.product-price-one').textContent);
+
+        // Вычисляем общую стоимость
+        const total = quantity * priceOne;
+
+        // Вставляем общую стоимость в соответствующий элемент
+        card.querySelector('.price-placeholder').textContent = total;})
+    </script>
 {% endblock %}

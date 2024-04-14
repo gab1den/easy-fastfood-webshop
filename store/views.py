@@ -14,6 +14,7 @@ def add_to_basket(request, product_id):
     basket.save()
     return redirect('product_list')
 
-def busket(request):
-    basket = Basket.objects.all()
-    return render(request, 'store/basket.html', {'basket': basket})
+
+def basket(request):
+    basket_items = Basket.objects.all()
+    return render(request, 'store/basket.html', {'basket_items': basket_items})

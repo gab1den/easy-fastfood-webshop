@@ -129,6 +129,14 @@ html, body {
     margin: 0 auto;
 }
 
+#basket-cards {
+    width: 80%;
+    margin: 15px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 /* FOOTER */
 
 .footer {
