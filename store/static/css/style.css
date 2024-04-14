@@ -9,6 +9,10 @@ html, body {
     font-weight: 400;
     font-style: normal;
     font-size: 24px;
+    background-image: url("../image/bg.jpg");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .btn {
@@ -28,7 +32,6 @@ html, body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    background-image: url("../image/360_F_446373646_uYHx1cGEL6zrndv4xlcElHtHdfa0BF0j.jpg");
 }
 
 /* HEADER */
