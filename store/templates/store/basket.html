@@ -12,9 +12,9 @@
                 {% for basket in basket_items %}
                 <div class="row">
                     <div class="row-inner">
-                        <p class="product-name">{{ basket.product.name }}</p>
-                        <p class="product-quantity">{{ basket.quantity }} шт.</p>
-                        <p class="product-price">Цена за штуку: {{ basket.product.price }} тг.</p>
+                        <p class="product-name">Название: {{ basket.product.name }}</p>
+                        <p>Количество: <span class="product-quantity">{{ basket.quantity }}</span> шт.</p>
+                        <p>Цена за штуку: <span class="product-price">{{ basket.product.price }}</span> тг.</p>
                         <p class="product-total">Цена за все {{ basket.product.name }}: {{ basket.quantity }} Х {{ basket.product.price }} = <span class="price-placeholder"></span> тг.</p>
                     </div>
                     <button class="btn" onclick="alert('Заказ оформлен успешно');" style="background-color: #ff450c;">Заказать</button>

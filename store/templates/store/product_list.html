@@ -8,8 +8,8 @@
                 <div class="card">
                     <div class="card-inner">
                         <img src="{{ product.image.url }}" alt="{{ product.name }}" >
-                        <h5>{{ product.name }}</h5>
-                        <p>{{ product.price }}$</p>
+                        <h5>Название:{{ product.name }}</h5>
+                        <p>Цена за штуку:{{ product.price }} тг</p>
                         <form method="post" action="{% url 'add_to_basket' product.id %}">
                             {% csrf_token %}
                             <button class="btn" type="submit">Add to Basket</button>
