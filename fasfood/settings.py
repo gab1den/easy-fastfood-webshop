@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-jxvk-4o!h39re*zv6xgagx*n362mr8j=a8rty8y$^7o#!rm&bj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["fastfoodstore.pythonanywhere.com",]
 
 
 # Application definition
