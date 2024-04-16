@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="{% static 'css/style-basket.css'%}">
 {% endblock %}
 
+{% block title %}Корзина{% endblock %}
+
 {% block content %}
 <main class="main">
     <article class="article-card">
@@ -18,6 +20,10 @@
                         <p class="product-total">Цена за все {{ basket.product.name }}: {{ basket.quantity }} Х {{ basket.product.price }} = <span class="price-placeholder"></span> тг.</p>
                     </div>
                     <button class="btn" onclick="alert('Заказ оформлен успешно');" style="background-color: #ff450c;">Заказать</button>
+                    <form method="post" action="{% url 'remove_from_basket' basket.product.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn" style="background-color: #ff450c; margin-left: 10px;">Удалить</button>
+                    </form>
                 </div>
                 {% endfor %}
             </div>

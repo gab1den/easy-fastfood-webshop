@@ -1,0 +1,71 @@
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    width: 50%;
+    height: 500px;
+    background-color: #ebebeb;
+    -webkit-box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.34);
+    -moz-box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.34);
+    box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.34);
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 100px;
+
+    & h2 {
+        text-align: center;
+    }
+
+    & input {    
+        background-color: #ffffff;
+        border: #000 solid 1px;
+        border-radius: 5px;
+        margin: 25px;
+        width: 90%;
+        height: 50px;
+        -webkit-box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.116);
+        -moz-box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.116);
+        box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.116);
+    }
+
+    & input:last-child {
+        margin-bottom: 50px;
+    } 
+}
+
+.register-form {
+    width: 50%;
+    height: 825px;
+    background-color: #ebebeb;
+    -webkit-box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.34);
+    -moz-box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.34);
+    box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.34);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 100px;
+
+    & h2 {
+        text-align: center;
+    }
+
+    & input {    
+        background-color: #ffffff;
+        border: #000 solid 1px;
+        border-radius: 5px;
+        margin: 25px;
+        width: 90%;
+        height: 50px;
+        -webkit-box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.116);
+        -moz-box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.116);
+        box-shadow: 1px 1px 22px 5px rgba(0, 0, 0, 0.116);
+    }
+
+    & input:last-child {
+        margin-bottom: 50px;
+    } 
+}
